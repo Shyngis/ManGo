@@ -1,0 +1,7 @@
+.card {
+      min-width: 200px;
+      max-height: 280px;
+      cursor: pointer;
+      padding: 10px;
+     
+}

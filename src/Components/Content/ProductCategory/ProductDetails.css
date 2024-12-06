@@ -1,0 +1,12 @@
+.carousel-item {
+  padding: 10px 80px;
+  
+}
+
+
+.carousel-item img {
+  height: auto;
+  width: auto;
+  object-fit: cover;
+
+}
