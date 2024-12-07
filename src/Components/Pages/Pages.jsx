@@ -9,12 +9,15 @@ import { ProtectedRoute } from "../Header/Auth/ProtectedRoute";
 import { AdminDashboard } from "../Content/Admin/AdminDashboard";
 import { Search } from "../Header/Search";
 import { Cart } from "../Content/Cart/Cart";
+import { Footer } from "../Footer/Footer";
+import Popup from "./Popup";
 
 export const Pages = () => {
   return (
     <>
       <Router>
         <Header />
+        <Popup />
         <Routes>
           <Route path="/" Component={Primary} />
           <Route path="search" Component={Search} />
@@ -36,6 +39,7 @@ export const Pages = () => {
           />
           ;
         </Routes>
+        <Footer />
       </Router>
     </>
   );

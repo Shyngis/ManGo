@@ -5,7 +5,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { AuthProfile } from "./Auth/AuthProfile";
 import { useTranslation } from "react-i18next";
-import { Counter } from "./../../Counter/Counter";
+import { useSelector } from "react-redux";
 
 export const Header = () => {
   const [query, setQuery] = useState("");
@@ -48,6 +48,11 @@ export const Header = () => {
     { name: "русский", code: "ru" },
     { name: "қазақша", code: "kaz" },
   ];
+
+  const cartItems = useSelector((state) => state.cart.items);
+
+  // Calculate the total count of items in the cart
+  const count = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <>
@@ -92,8 +97,35 @@ export const Header = () => {
               </li>
             </ul>
             <Link to="cart" style={{ color: "black", textDecoration: "none" }}>
-              <div style={{ marginRight: "2vw", fontSize: "18px" }}>
+              <div
+                style={{
+                  position: "relative",
+                  marginRight: "2vw",
+                  fontSize: "18px",
+                }}
+              >
                 <i class="fa-solid fa-cart-shopping"></i>
+                {count > 0 && (
+                  <span
+                    className="cart-count"
+                    style={{
+                      position: "absolute",
+                      top: "-5px", // Adjust the position as needed
+                      right: "-5px", // Adjust the position as needed
+                      backgroundColor: "blue", // Blue background
+                      color: "white", // Text color for the count
+                      borderRadius: "50%", // Make it round
+                      width: "20px", // Adjust size
+                      height: "20px", // Adjust size
+                      display: "flex", // Flex to center the text
+                      justifyContent: "center", // Center the text horizontally
+                      alignItems: "center", // Center the text vertically
+                      fontSize: "12px", // Adjust font size
+                    }}
+                  >
+                    {count}
+                  </span>
+                )}
               </div>
             </Link>
             <div>
@@ -109,9 +141,6 @@ export const Header = () => {
                 ))}
               </select>
             </div>
-
-            <Counter />
-
             <div
               onClick={ChangeTheme}
               style={{ marginRight: "2vw", marginLeft: "2vw" }}

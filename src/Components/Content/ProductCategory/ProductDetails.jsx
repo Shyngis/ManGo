@@ -46,8 +46,6 @@ export const ProductDetails = () => {
   const count = useSelector((state) => state.counter.value);
   return (
     <>
-      {count}
-
       <div class="container mt-5">
         {loading ? (
           <Loading />
