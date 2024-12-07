@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Outlet, useLocation, useParams } from "react-router-dom";
+import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import "./ProductDetails.css";
 import { Loading } from "../../Services/Loading";
-
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../Cart/cartSlice";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export const ProductDetails = () => {
   // const location = useLocation();
   // console.log(location.state);
   const params = +useParams().productId;
+  const navigate = useNavigate();
 
   console.log("id is=", params);
   console.log("typeof id is=", typeof params);
@@ -15,6 +19,13 @@ export const ProductDetails = () => {
   const [loading, setLoading] = useState(true);
   // console.log(data.map((it) => it.title));
   console.log("data are=", data);
+  const dispatch = useDispatch();
+  const handleAddToCart = () => {
+    dispatch(addToCart(data));
+    console.log("data is=", data);
+    toast.success("Succesfully added to cart!");
+    // navigate("/cart");
+  };
 
   useEffect(() => {
     // Fetch data from API when component mounts
@@ -31,8 +42,12 @@ export const ProductDetails = () => {
         setLoading(false); // Stop loading on error
       });
   }, []);
+
+  const count = useSelector((state) => state.counter.value);
   return (
     <>
+      {count}
+
       <div class="container mt-5">
         {loading ? (
           <Loading />
@@ -152,7 +167,9 @@ export const ProductDetails = () => {
                     </li>
                   </ul>
 
-                  <button class="btn btn-primary">Add to Cart</button>
+                  <button className="btn btn-primary" onClick={handleAddToCart}>
+                    Add to Cart
+                  </button>
                   <button class="btn btn-outline-secondary">
                     Add to Wishlist
                   </button>
@@ -182,6 +199,7 @@ export const ProductDetails = () => {
           )
         )}
       </div>
+      <ToastContainer />
     </>
   );
 };

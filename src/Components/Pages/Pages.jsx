@@ -8,6 +8,7 @@ import { ProductDetails } from "../Content/ProductCategory/ProductDetails";
 import { ProtectedRoute } from "../Header/Auth/ProtectedRoute";
 import { AdminDashboard } from "../Content/Admin/AdminDashboard";
 import { Search } from "../Header/Search";
+import { Cart } from "../Content/Cart/Cart";
 
 export const Pages = () => {
   return (
@@ -17,6 +18,7 @@ export const Pages = () => {
         <Routes>
           <Route path="/" Component={Primary} />
           <Route path="search" Component={Search} />
+          <Route path="cart" Component={Cart} />
           <Route path="mango/:id" Component={FirstCategory} />
           <Route path="mango/:id/product/:brand" Component={Product}></Route>
           <Route

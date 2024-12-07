@@ -5,6 +5,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { AuthProfile } from "./Auth/AuthProfile";
 import { useTranslation } from "react-i18next";
+import { Counter } from "./../../Counter/Counter";
 
 export const Header = () => {
   const [query, setQuery] = useState("");
@@ -90,7 +91,11 @@ export const Header = () => {
                 </form>
               </li>
             </ul>
-
+            <Link to="cart" style={{ color: "black", textDecoration: "none" }}>
+              <div style={{ marginRight: "2vw", fontSize: "18px" }}>
+                <i class="fa-solid fa-cart-shopping"></i>
+              </div>
+            </Link>
             <div>
               <select
                 class="form-select"
@@ -104,7 +109,13 @@ export const Header = () => {
                 ))}
               </select>
             </div>
-            <div onClick={ChangeTheme} style={{ marginRight: "1vw" }}>
+
+            <Counter />
+
+            <div
+              onClick={ChangeTheme}
+              style={{ marginRight: "2vw", marginLeft: "2vw" }}
+            >
               <i
                 style={{ color: "black", cursor: "pointer", fontSize: "20px" }}
                 class={
