@@ -6,7 +6,7 @@ const Popup = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowModal(true); // Show the modal after 1 minute (60000 ms)
-    }, 30000); // 60000 ms = 1 minute
+    }, 3000); // 60000 ms = 1 minute
 
     // Cleanup the timer on component unmount
     return () => clearTimeout(timer);
@@ -21,16 +21,23 @@ const Popup = () => {
       {/* Bootstrap Modal */}
       <div
         className={`modal fade ${showModal ? "show" : ""}`} // Control modal visibility
-        style={{ display: showModal ? "block" : "none" }} // Ensure modal is shown when `showModal` is true
+        style={{
+          display: showModal ? "block" : "none",
+          backgroundColor: "rgba(0, 0, 0, 0.7)",
+        }} // Ensure modal is shown when `showModal` is true
         tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden={!showModal}
+        onClick={handleCloseModal}
       >
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">
-                Welcome to our Website!
+              <h5
+                className="modal-title text-center w-100"
+                id="exampleModalLabel"
+              >
+                Жаңа жылдық науқандар!
               </h5>
               <button
                 type="button"
@@ -41,17 +48,7 @@ const Popup = () => {
               ></button>
             </div>
             <div className="modal-body">
-              <p>This popuPopupears 1 minute after you open the website.</p>
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-                onClick={handleCloseModal}
-              >
-                Close
-              </button>
+              <img src="https://ecco.kz/img/684_8917_400x254.jpg" alt="" />
             </div>
           </div>
         </div>

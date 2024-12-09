@@ -9,6 +9,57 @@ export const Primary = () => {
   // <Link to={`/mango/${item.id}`}></Link>;
   return (
     <>
+      <div
+        id="carouselExampleInterval"
+        class="carousel slide carousel-fade"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="7000">
+            <img
+              src="https://www.energysistem.com/cdnassets/products/45305/principal_2000.jpg"
+              style={{ height: "20vw", objectFit: "contain" }}
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item" data-bs-interval="7000">
+            <img
+              src="https://kaspi.kz/img/Phone.png"
+              style={{ height: "20vw", objectFit: "contain" }}
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item" data-bs-interval="7000">
+            <img
+              src="https://www.apple.com/v/watch/bk/images/meta/watch-gps-lte__f3xmp4zpdka6_og.png"
+              style={{ height: "20vw", objectFit: "contain" }}
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleInterval"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleInterval"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
       <div className="row mt-4">
         {mango.map((item) => (
           <div

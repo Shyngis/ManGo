@@ -1,8 +1,10 @@
 import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { login } from "./authSlice";
 
-export const LoginForm = ({ setIsAuthent }) => {
+export const LoginForm = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false); // State for showing/hiding password
@@ -10,6 +12,7 @@ export const LoginForm = ({ setIsAuthent }) => {
   const navigate = useNavigate();
   const closeModalButtonRef = useRef(null); // Ref for the close button
   const { t, i18n } = useTranslation();
+  const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -17,9 +20,10 @@ export const LoginForm = ({ setIsAuthent }) => {
     if (user === "admin" && password === "admin123") {
       setError("");
       // Save login state in local storage or context for real apps
-      localStorage.setItem("isAuthenticated", true); // Mock authentication
+      // localStorage.setItem("isAuthenticated", true); // Mock authentication
       // Trigger the close button click
-      setIsAuthent(true);
+      // setIsAuthent(true);
+      dispatch(login());
       closeModalButtonRef.current.click();
 
       // navigate("/admin/dashboard");
@@ -155,7 +159,7 @@ export const RegisterForm = () => {
   );
 };
 
-export const Login = ({ setIsAuthenticated }) => {
+export const Login = () => {
   const [login, setLogin] = useState(true);
   // var myModal = document.getElementById("exampleModal");
   // var myInput = document.getElementById("exampleInput");
@@ -215,7 +219,7 @@ export const Login = ({ setIsAuthenticated }) => {
                 >
                   {t("SIGN_UP")}
                 </button>
-                {login && <LoginForm setIsAuthent={setIsAuthenticated} />}
+                {login && <LoginForm />}
                 {!login && <RegisterForm />}
               </div>
             </div>

@@ -18,8 +18,8 @@ export const Header = () => {
     navigate("/search", { state: { query } });
   };
 
-  const [isAuthenticated, setIsAuthenticated] = useState(checkStatus);
-
+  // const [isAuthenticated, setIsAuthenticated] = useState(checkStatus);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const ChangeTheme = () => {
     document.body.classList.toggle("dark-mode");
     const isDarkMode = document.body.classList.contains("dark-mode");
@@ -152,11 +152,7 @@ export const Header = () => {
                 }
               ></i>
             </div>
-            {isAuthenticated ? (
-              <AuthProfile setIsAuthenticat={setIsAuthenticated} />
-            ) : (
-              <Login setIsAuthenticated={setIsAuthenticated} />
-            )}
+            {isAuthenticated ? <AuthProfile /> : <Login />}
           </div>
         </div>
       </nav>

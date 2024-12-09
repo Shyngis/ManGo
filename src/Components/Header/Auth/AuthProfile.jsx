@@ -1,9 +1,13 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { logout } from "./authSlice";
 
-export const AuthProfile = ({ setIsAuthenticat }) => {
+export const AuthProfile = () => {
+  const dispatch = useDispatch();
   const handleLogout = () => {
-    localStorage.removeItem("isAuthenticated");
-    setIsAuthenticat(false);
+    // localStorage.removeItem("isAuthenticated");
+    // setIsAuthenticat(false);
+    dispatch(logout());
   };
   return (
     <div class="dropdown">
