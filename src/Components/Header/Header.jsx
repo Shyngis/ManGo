@@ -152,6 +152,24 @@ export const Header = () => {
                 }
               ></i>
             </div>
+
+            {isAuthenticated ? (
+              <Link
+                to="admin/dashboard"
+                style={{ color: "black", textDecoration: "none" }}
+              >
+                <div
+                  style={{
+                    position: "relative",
+                    marginRight: "2vw",
+                    fontSize: "18px",
+                  }}
+                >
+                  <i class="fa-solid fa-screwdriver-wrench"></i>
+                </div>
+              </Link>
+            ) : null}
+
             {isAuthenticated ? <AuthProfile /> : <Login />}
           </div>
         </div>

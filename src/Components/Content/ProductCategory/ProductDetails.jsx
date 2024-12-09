@@ -3,7 +3,7 @@ import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import "./ProductDetails.css";
 import { Loading } from "../../Services/Loading";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../Cart/cartSlice";
+import { addToCart, removeFromCart } from "../Cart/cartSlice";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 export const ProductDetails = () => {
@@ -20,11 +20,20 @@ export const ProductDetails = () => {
   // console.log(data.map((it) => it.title));
   console.log("data are=", data);
   const dispatch = useDispatch();
-  const handleAddToCart = () => {
-    dispatch(addToCart(data));
-    console.log("data is=", data);
-    toast.success("Succesfully added to cart!");
-    // navigate("/cart");
+
+  const cartItems = useSelector((state) => state.cart.items);
+
+  // Check if the product is already in the cart
+  const isInCart = cartItems.some((item) => item.id === params);
+
+  const handleToggleCart = () => {
+    if (isInCart) {
+      dispatch(removeFromCart(params));
+      toast.warn("Removed from cart!");
+    } else {
+      dispatch(addToCart(data));
+      toast.success("Added to cart!");
+    }
   };
 
   useEffect(() => {
@@ -165,8 +174,11 @@ export const ProductDetails = () => {
                     </li>
                   </ul>
 
-                  <button className="btn btn-primary" onClick={handleAddToCart}>
-                    Add to Cart
+                  <button
+                    className={`btn ${isInCart ? "btn-danger" : "btn-primary"}`}
+                    onClick={handleToggleCart}
+                  >
+                    {isInCart ? "Remove from Cart" : "Add to Cart"}
                   </button>
                   <button class="btn btn-outline-secondary">
                     Add to Wishlist
