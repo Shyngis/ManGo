@@ -2,6 +2,7 @@ import React from "react";
 import { mango } from "../../data";
 import "./Primary.css";
 import { Link, useNavigate } from "react-router-dom";
+import { Typewriter } from "react-simple-typewriter";
 
 export const Primary = () => {
   const navigate = useNavigate();
@@ -59,7 +60,26 @@ export const Primary = () => {
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-
+      <div>
+        <h2>
+          Welcome to{" "}
+          <span style={{ color: "blue" }}>
+            <Typewriter
+              words={[
+                "ManGo",
+                "the biggest shop of the world",
+                "your dream prices",
+              ]}
+              loop={true}
+              cursor
+              cursorStyle="|"
+              typeSpeed={90}
+              deleteSpeed={70}
+              delaySpeed={3000}
+            />
+          </span>
+        </h2>
+      </div>
       <div className="row mt-4">
         {mango.map((item) => (
           <div

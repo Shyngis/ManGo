@@ -30,7 +30,7 @@ export const FirstCategory = () => {
 
   return (
     <>
-      <div className="row mt-4">
+      <div className="row mt-4" style={{ minHeight: "450px" }}>
         {showLoading && filteredBrands.length === 0 && <Loading />}
         {showNoData && filteredBrands.length === 0 && <p>No data</p>}
         {filteredBrands.length > 0 &&

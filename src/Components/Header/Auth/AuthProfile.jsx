@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "./authSlice";
 
 export const AuthProfile = () => {
@@ -9,6 +9,8 @@ export const AuthProfile = () => {
     // setIsAuthenticat(false);
     dispatch(logout());
   };
+
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   return (
     <div class="dropdown">
       <button
@@ -18,7 +20,7 @@ export const AuthProfile = () => {
         aria-expanded="false"
       >
         <i class="fa-solid fa-user"></i>
-        <span style={{ marginLeft: "0.7vw" }}>Admin</span>
+        <span style={{ marginLeft: "0.7vw" }}>{isAuthenticated}</span>
       </button>
       <ul class="dropdown-menu dropdown-menu-end">
         <li>

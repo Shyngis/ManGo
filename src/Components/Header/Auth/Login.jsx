@@ -17,13 +17,16 @@ export const LoginForm = () => {
     e.preventDefault();
 
     // Simple credential check
-    if (user === "admin" && password === "admin123") {
+    if (
+      (user === "admin" && password === "admin123") ||
+      (user === "user" && password === "user123")
+    ) {
       setError("");
       // Save login state in local storage or context for real apps
       // localStorage.setItem("isAuthenticated", true); // Mock authentication
       // Trigger the close button click
       // setIsAuthent(true);
-      dispatch(login());
+      dispatch(login(user));
       closeModalButtonRef.current.click();
 
       // navigate("/admin/dashboard");

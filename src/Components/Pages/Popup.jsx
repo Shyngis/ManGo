@@ -6,7 +6,7 @@ const Popup = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowModal(true); // Show the modal after 1 minute (60000 ms)
-    }, 3000); // 60000 ms = 1 minute
+    }, 30000); // 60000 ms = 1 minute
 
     // Cleanup the timer on component unmount
     return () => clearTimeout(timer);

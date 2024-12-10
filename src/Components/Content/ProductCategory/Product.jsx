@@ -26,7 +26,7 @@ export const Product = () => {
       });
   }, []);
   return (
-    <div className="row mt-4">
+    <div className="row mt-4" style={{ minHeight: "450px" }}>
       {loading ? (
         <Loading />
       ) : (

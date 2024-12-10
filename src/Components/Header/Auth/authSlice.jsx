@@ -8,9 +8,14 @@ const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    login: (state) => {
-      state.isAuthenticated = true;
-      localStorage.setItem("isAuthenticated", "true"); // Persist login state
+    login: (state, action) => {
+      const role = action.payload; // "admin" or "user"
+      if (role === "admin" || role === "user") {
+        state.isAuthenticated = role;
+        localStorage.setItem("isAuthenticated", role); // Persist login state with role
+      } else {
+        console.error("Invalid role: must be 'admin' or 'user'");
+      }
     },
     logout: (state) => {
       state.isAuthenticated = false;

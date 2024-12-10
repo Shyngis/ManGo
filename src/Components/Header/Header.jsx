@@ -153,7 +153,7 @@ export const Header = () => {
               ></i>
             </div>
 
-            {isAuthenticated ? (
+            {isAuthenticated === "admin" && (
               <Link
                 to="admin/dashboard"
                 style={{ color: "black", textDecoration: "none" }}
@@ -168,7 +168,26 @@ export const Header = () => {
                   <i class="fa-solid fa-screwdriver-wrench"></i>
                 </div>
               </Link>
-            ) : null}
+            )}
+
+            {isAuthenticated === "user" &&
+              null
+              // <Link
+              //   to="/user/profile"
+              //   style={{ color: "black", textDecoration: "none" }}
+              // >
+              //   <div
+              //     style={{
+              //       position: "relative",
+              //       marginRight: "2vw",
+              //       fontSize: "18px",
+              //     }}
+              //   >
+              //     <i class="fa-solid fa-user"></i>
+              //     <span style={{ marginLeft: "5px" }}>User Profile</span>
+              //   </div>
+              // </Link>
+            }
 
             {isAuthenticated ? <AuthProfile /> : <Login />}
           </div>
