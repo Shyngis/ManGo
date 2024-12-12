@@ -1,8 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
 export const ProtectedRoute = ({ children }) => {
-  const isAuthenticated = localStorage.getItem("isAuthenticated");
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
-  return isAuthenticated ? children : <Navigate to="/" />;
+  return isAuthenticated === "admin" ? children : <Navigate to="/" />;
 };

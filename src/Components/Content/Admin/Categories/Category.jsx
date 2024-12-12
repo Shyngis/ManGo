@@ -1,43 +1,40 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 import { Link, Outlet } from "react-router-dom";
-import { Product } from "./../ProductCategory/Product";
 
-export const AdminDashboard = () => {
-  const count = useSelector((state) => state.counter.value);
+export const Category = () => {
   const [isActive, setisActive] = useState(null);
   return (
     <div style={{ minHeight: "450px" }}>
       <Link
-        to="category"
+        to="maincategory"
         style={{ color: "black", textDecoration: "none" }}
-        onClick={() => setisActive("category")}
+        onClick={() => setisActive("mainCategory")}
       >
         <button
           type="button"
           class={
-            isActive === "category"
+            isActive === "mainCategory"
               ? "text-center m-1 mb-4 btn btn-primary"
               : "text-center m-1 mb-4 btn btn-light"
           }
         >
-          Categories
+          Main Category
         </button>
       </Link>
       <Link
-        to="products"
+        to="subcategory"
         style={{ color: "black", textDecoration: "none" }}
-        onClick={() => setisActive("products")}
+        onClick={() => setisActive("subCategory")}
       >
         <button
           type="button"
           class={
-            isActive === "products"
+            isActive === "subCategory"
               ? "text-center m-1 mb-4 btn btn-primary"
               : "text-center m-1 mb-4 btn btn-light"
           }
         >
-          Products
+          Sub category
         </button>
       </Link>
 

@@ -11,6 +11,10 @@ import { Search } from "../Header/Search";
 import { Cart } from "../Content/Cart/Cart";
 import { Footer } from "../Footer/Footer";
 import Popup from "./Popup";
+import { Category } from "../Content/Admin/Categories/Category";
+import { Products } from "../Content/Admin/Product/Products";
+import { mainCategory } from "../Content/Admin/Categories/mainCategory";
+import { subCategory } from "../Content/Admin/Categories/subCategory";
 
 export const Pages = () => {
   return (
@@ -36,7 +40,13 @@ export const Pages = () => {
                 <AdminDashboard />
               </ProtectedRoute>
             }
-          />
+          >
+            <Route path="category" Component={Category}>
+              <Route path="maincategory" Component={mainCategory} />
+              <Route path="subcategory" Component={subCategory} />
+            </Route>
+            <Route path="products" Component={Products} />
+          </Route>
           ;
         </Routes>
         <Footer />

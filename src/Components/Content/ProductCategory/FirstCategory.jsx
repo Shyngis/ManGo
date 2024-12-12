@@ -15,7 +15,7 @@ export const FirstCategory = () => {
     const timer = setTimeout(() => {
       setShowLoading(false);
       setShowNoData(true);
-    }, 5000);
+    }, 3000);
   }, []);
 
   // const params = useParams();
