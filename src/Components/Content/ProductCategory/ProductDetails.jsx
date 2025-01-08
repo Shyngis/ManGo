@@ -123,7 +123,13 @@ export const ProductDetails = () => {
                   <h4 class="text-success">
                     {data.price}
                     <span class="text-muted">
-                      <del>$226.75</del>
+                      <del>
+                        $
+                        {(
+                          (data.price * 100) /
+                          (100 - data.discountPercentage)
+                        ).toFixed(2)}
+                      </del>
                     </span>{" "}
                     <span class="badge bg-success">
                       {data.discountPercentage} OFF

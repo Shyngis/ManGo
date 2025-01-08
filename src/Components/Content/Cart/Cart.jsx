@@ -2,8 +2,10 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart } from "./cartSlice";
 import { toast, ToastContainer } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 export const Cart = () => {
+  const { t, i18n } = useTranslation();
   const cartItems = useSelector((state) => state.cart.items);
   console.log("cartItems are=", cartItems);
   const dispatch = useDispatch();
@@ -19,9 +21,9 @@ export const Cart = () => {
   return (
     <>
       <div className="container mt-5" style={{ minHeight: "450px" }}>
-        <h1>Your Cart</h1>
+        <h1>{t("YOUR_CART")}</h1>
         {cartItems.length === 0 ? (
-          <p>The cart is empty.</p>
+          <p>{t("YOUR_CART_EMPTY")}</p>
         ) : (
           <>
             <ul className="list-group">

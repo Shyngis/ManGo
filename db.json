@@ -1,10 +1,114 @@
 {
-  "posts": [
-    { "id": 1, "title": "Hello World", "content": "Welcome to json-server" },
-    { "id": 2, "title": "Another Post", "content": "Here's another example post" }
+  "maincategories": [
+    {
+      "id": "4",
+      "title": "All heroes dont wear capes"
+    },
+    {
+      "id": "6",
+      "title": "Austin Marque"
+    },
+    {
+      "id": "7",
+      "title": "alde soymen"
+    },
+    {
+      "id": "8",
+      "title": "with Copilot"
+    }
   ],
-  "comments": [
-    { "id": 1, "postId": 1, "text": "Great post!" },
-    { "id": 2, "postId": 1, "text": "Thanks for sharing!" }
+  "subcategories": [
+    {
+      "id": "1",
+      "mainId": "4",
+      "title": "Superman wears"
+    },
+    {
+      "id": "3",
+      "mainId": "4",
+      "title": "Bat man doesnt wear (bat)"
+    },
+    {
+      "id": "5",
+      "mainId": "4",
+      "title": "Marvel "
+    },
+    {
+      "id": "6",
+      "mainId": "4",
+      "title": "vs DC"
+    },
+    {
+      "id": "7",
+      "mainId": "6",
+      "title": "Usman Camaro men fight"
+    },
+    {
+      "id": "8",
+      "mainId": "6",
+      "title": "MCthetourisma"
+    },
+    {
+      "id": "10",
+      "mainId": "8",
+      "title": "named after SDU"
+    },
+    {
+      "id": "11",
+      "mainId": "8",
+      "title": "rffr"
+    },
+    {
+      "id": "12",
+      "mainId": "8",
+      "title": "rafshan"
+    },
+    {
+      "id": "13",
+      "mainId": "8",
+      "title": "abchan"
+    },
+    {
+      "id": "14",
+      "mainId": "7",
+      "title": "emk"
+    },
+    {
+      "id": "15",
+      "mainId": "6",
+      "title": "аустин"
+    },
+    {
+      "id": "16",
+      "mainId": "4",
+      "title": "на русском можно шо ле"
+    },
+    {
+      "id": "17",
+      "mainId": "6",
+      "title": "ffcgvb"
+    }
+  ],
+  "products": [
+    {
+      "id": "2",
+      "categoryId": "7",
+      "title": "ded"
+    },
+    {
+      "id": "3",
+      "categoryId": "7",
+      "title": "             d,cdc,mk"
+    },
+    {
+      "id": "4",
+      "categoryId": "1",
+      "title": "Maxi tea and fuse tea"
+    },
+    {
+      "id": "5",
+      "categoryId": "8",
+      "title": "gvhbn"
+    }
   ]
 }

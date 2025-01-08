@@ -3,9 +3,11 @@ import { mango } from "../../data";
 import "./Primary.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
+import { useTranslation } from "react-i18next";
 
 export const Primary = () => {
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
 
   // <Link to={`/mango/${item.id}`}></Link>;
   return (
@@ -62,14 +64,10 @@ export const Primary = () => {
       </div>
       <div>
         <h2>
-          Welcome to{" "}
+          {t("WELCOME")}
           <span style={{ color: "blue" }}>
             <Typewriter
-              words={[
-                "ManGo",
-                "the biggest shop of the world",
-                "your dream prices",
-              ]}
+              words={["ManGo", t("BIGGEST_SHOP"), t("DREAM_PRICES")]}
               loop={true}
               cursor
               cursorStyle="|"

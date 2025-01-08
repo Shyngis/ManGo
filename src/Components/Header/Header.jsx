@@ -11,6 +11,7 @@ export const Header = () => {
   const [query, setQuery] = useState("");
   console.log("query zapros is=", query);
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
 
   const checkStatus = localStorage.getItem("isAuthenticated");
   const handleSearch = (e) => {
@@ -37,8 +38,6 @@ export const Header = () => {
       document.body.classList.add("dark-mode");
     }
   };
-
-  const { t, i18n } = useTranslation();
 
   const changeLanguage = (lang) => {
     i18n.changeLanguage(lang);
@@ -170,8 +169,8 @@ export const Header = () => {
               </Link>
             )}
 
-            {isAuthenticated === "user" &&
-              null
+            {
+              isAuthenticated === "user" && null
               // <Link
               //   to="/user/profile"
               //   style={{ color: "black", textDecoration: "none" }}

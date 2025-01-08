@@ -5,12 +5,18 @@ const Popup = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowModal(true); // Show the modal after 1 minute (60000 ms)
-    }, 30000); // 60000 ms = 1 minute
+      if (localStorage.getItem("isAuthenticated") === "admin") {
+        setShowModal(false);
+      } else {
+        setShowModal(true);
+      } // Show the modal after 1 minute (60000 ms)
+    }, 3000); // 60000 ms = 1 minute
 
     // Cleanup the timer on component unmount
     return () => clearTimeout(timer);
   }, []);
+
+  // console.log(typeof localStorage.getItem("isAuthenticated"));
 
   const handleCloseModal = () => {
     setShowModal(false); // Close the modal
