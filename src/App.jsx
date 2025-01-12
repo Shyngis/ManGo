@@ -3,7 +3,6 @@ import "./App.css";
 import { Pages } from "./Components/Pages/Pages";
 import "./i18n";
 import store from "./store";
-import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
