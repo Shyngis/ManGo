@@ -20,6 +20,7 @@ export const resources = {
       WELCOME: "Welcome to ",
       BIGGEST_SHOP: "the biggest shop of the world",
       DREAM_PRICES: "your dream prices",
+      WHOSE: "Whose",
     },
   },
   ru: {
