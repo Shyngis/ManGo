@@ -9,7 +9,6 @@ function App() {
     <Provider store={store}>
       <div className="container">
         <Pages />
-        {/*<TutorialMain /> */}
       </div>
     </Provider>
   );

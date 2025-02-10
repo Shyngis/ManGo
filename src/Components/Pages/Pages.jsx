@@ -15,6 +15,7 @@ import { Category } from "../Content/Admin/Categories/Category";
 import { Products } from "../Content/Admin/Product/Products";
 import { mainCategory } from "../Content/Admin/Categories/mainCategory";
 import { subCategory } from "../Content/Admin/Categories/subCategory";
+import { Testing } from "../Content/Tutorial/Testing";
 
 export const Pages = () => {
   return (
@@ -26,6 +27,7 @@ export const Pages = () => {
           <Route path="/" Component={Primary} />
           <Route path="search" Component={Search} />
           <Route path="cart" Component={Cart} />
+          <Route path="test" Component={Testing} />
           <Route path="mango/:id" Component={FirstCategory} />
           <Route path="mango/:id/product/:brand" Component={Product}></Route>
           <Route

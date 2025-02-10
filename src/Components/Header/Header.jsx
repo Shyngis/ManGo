@@ -9,7 +9,6 @@ import { useSelector } from "react-redux";
 
 export const Header = () => {
   const [query, setQuery] = useState("");
-  console.log("query zapros is=", query);
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
 
@@ -55,13 +54,13 @@ export const Header = () => {
 
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <Link class="navbar-brand" to={`/`}>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container-fluid">
+          <Link className="navbar-brand" to={`/`}>
             ManGo
           </Link>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -69,27 +68,27 @@ export const Header = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="test">
                   {t("HOME")}
-                </a>
+                </Link>
               </li>
 
               <li>
-                <form class="d-flex" onSubmit={handleSearch}>
+                <form className="d-flex" onSubmit={handleSearch}>
                   <input
-                    class="form-control me-2"
+                    className="form-control me-2"
                     type="search"
                     placeholder={t("SEARCH")}
                     aria-label="Search"
                     onChange={(e) => setQuery(e.target.value)}
                   />
-                  <button class="btn btn-outline-success" type="submit">
+                  <button className="btn btn-outline-success" type="submit">
                     {t("SEARCH")}
                   </button>
                 </form>
@@ -103,7 +102,7 @@ export const Header = () => {
                   fontSize: "18px",
                 }}
               >
-                <i class="fa-solid fa-cart-shopping"></i>
+                <i className="fa-solid fa-cart-shopping"></i>
                 {count > 0 && (
                   <span
                     className="cart-count"
@@ -129,14 +128,16 @@ export const Header = () => {
             </Link>
             <div>
               <select
-                class="form-select"
+                className="form-select"
                 style={{ width: "auto" }}
                 aria-label="Default select example"
                 value={i18n.language} // Bind to the current language
                 onChange={(e) => changeLanguage(e.target.value)} // Handle language change
               >
                 {languages.map((lang) => (
-                  <option value={lang.code}>{lang.name}</option>
+                  <option key={lang.code} value={lang.code}>
+                    {lang.name}
+                  </option>
                 ))}
               </select>
             </div>
@@ -146,7 +147,7 @@ export const Header = () => {
             >
               <i
                 style={{ color: "black", cursor: "pointer", fontSize: "20px" }}
-                class={
+                className={
                   isMode === "light" ? "fa-solid fa-moon" : "fa-regular fa-sun"
                 }
               ></i>
@@ -164,7 +165,7 @@ export const Header = () => {
                     fontSize: "18px",
                   }}
                 >
-                  <i class="fa-solid fa-screwdriver-wrench"></i>
+                  <i className="fa-solid fa-screwdriver-wrench"></i>
                 </div>
               </Link>
             )}

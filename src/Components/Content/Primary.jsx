@@ -1,7 +1,7 @@
 import React from "react";
 import { mango } from "../../data";
 import "./Primary.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
 import { useTranslation } from "react-i18next";
 
@@ -9,7 +9,6 @@ export const Primary = () => {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
 
-  // <Link to={`/mango/${item.id}`}></Link>;
   return (
     <>
       <div

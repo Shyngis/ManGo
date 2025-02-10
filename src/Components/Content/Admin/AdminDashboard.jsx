@@ -4,7 +4,7 @@ import { Link, Outlet } from "react-router-dom";
 import { Product } from "./../ProductCategory/Product";
 
 export const AdminDashboard = () => {
-  const count = useSelector((state) => state.counter.value);
+  // const count = useSelector((state) => state.counter.value);
   const [isActive, setisActive] = useState(null);
   return (
     <div style={{ minHeight: "450px" }}>

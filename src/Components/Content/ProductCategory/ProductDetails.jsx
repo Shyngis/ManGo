@@ -52,7 +52,7 @@ export const ProductDetails = () => {
       });
   }, []);
 
-  const count = useSelector((state) => state.counter.value);
+  // const count = useSelector((state) => state.counter.value);
   return (
     <>
       <div class="container mt-5">
